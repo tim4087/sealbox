@@ -40,6 +40,10 @@ dependencies = ["cryptography>=41.0"]
 argon2 = ["argon2-cffi>=21.3"]
 dev = ["pytest>=7.0"]
 
+[project.urls]
+Homepage = "https://github.com/tim4087/sealbox"
+Issues = "https://github.com/tim4087/sealbox/issues"
+
 [project.scripts]
 sealbox = "sealbox.cli:main"
 
