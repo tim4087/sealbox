@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sealbox"
+version = "0.1.0"
+description = "Encrypted vault for secrets: seal .env files and anything else with one passphrase (AES-256-GCM + scrypt/Argon2id)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "sealbox contributors" }]
+requires-python = ">=3.9"
+keywords = [
+    "secrets",
+    "encryption",
+    "env",
+    "vault",
+    "aes-gcm",
+    "security",
+    "argon2",
+    "scrypt",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security :: Cryptography",
+    "Typing :: Typed",
+]
+dependencies = ["cryptography>=41.0"]
+
+[project.optional-dependencies]
+argon2 = ["argon2-cffi>=21.3"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+sealbox = "sealbox.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sealbox"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
